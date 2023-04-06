@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "index";
+
+    var posts = new Post[]
+    {
+        new Post(
+            id: 0,
+            nome: "Regina Margherita",
+            descrizione: "Pizza margherita con mozzarella di Bufala",
+            foto: "/img/bufala.jpg",
+            prezzo: "12.00€"
+        ),
+        new Post(
+            id: 1,
+            nome: "Pizza Diavola",
+            descrizione: "Pizza margherita con salame piccante",
+            foto: "/img/diavola.jpg",
+            prezzo: "7.00€"
+        ),
+        new Post(
+            id: 2,
+            nome: "Pizza Americana",
+            descrizione: "Pizza margherita con wurstel e stick",
+            foto: "/img/americana.jpg",
+            prezzo: "8.00€"
+        )
+    };
+}
+
+@section Styles
+{
+    <style>
+
+        * {
+            text-align: center;
+        }
+
+        .bor-tab {
+            border: 1px solid black;
+            margin: auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            height: 100px;
+            width: 200px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-buf {
+            background-image: url("/img/bufala.jpg");
+        }
+
+        .image-dia {
+            background-image: url("/img/diavola.jpg");
+        }
+
+        .image-ame {
+            background-image: url("/img/americana.jpg");
+        }
+
+        .image-buf, .image-dia, .image-ame {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+}
+
+    
+
+<body>
+    <div>
+        <h1>Le nostre pizze</h1>
+        <h2>La top 3 di questa settimana</h2>
+    </div>
+    <div>
+        <table class="bor-tab">
+            <tr>
+                <th><h3>Id</h3></th>
+                <th><h3>Nome</h3></th>
+                <th><h3>Descrizione</h3></th>
+                <th><h3>Foto</h3></th>
+                <th><h3>Prezzo</h3></th>
+            </tr>
+            @foreach(var post in posts)
+            {
+                <tr>
+                    <td>@post.Id</td>
+                    <td>
+                        <a href="@Url.Action("Index", "Post")">@post.Nome</a>
+                        <a href="@Url.Action("Privacy", "Home")">Privacy</a>    
+                    </td>
+                    <td>@post.Descrizione</td>
+                    <td><img src="@post.Foto" /></td>
+                    <td>@post.Prezzo</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
