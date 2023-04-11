@@ -1,0 +1,64 @@
+﻿@model Pizza[]
+@{
+    ViewData["Title"] = "index";
+    var Pizzas = Model;
+}
+
+@section Styles
+{
+    <style>
+        main {
+            text-align: center;
+        }
+
+        .bor-tab {
+            border: 1px solid black;
+            margin: auto;
+        }
+
+        th, td, tr {
+            border: 1px solid black;
+            height: 100px;
+            width: 200px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+}
+
+    
+
+<body>
+    <div>
+        <table class="bor-tab">
+            <tr>
+                <th><h3>Id</h3></th>
+                <th><h3>Nome</h3></th>
+                <th><h3>Descrizione</h3></th>
+                <th><h3>Foto</h3></th>
+                <th><h3>Prezzo</h3></th>
+            </tr>
+            @foreach (var pizza in Pizzas)
+            {
+                <tr>
+                    <td>@pizza.Id</td>
+                    <td>
+                        <a href="@Url.Action("Detail", "Pizza")">@pizza.Nome</a>
+                        <a href="@Url.Action("Privacy", "Pizza")">Privacy</a>    
+                    </td>
+                    <td>@pizza.Descrizione</td>
+                    <td><img src="@pizza.Foto" /></td>
+                    <td>@pizza.Prezzo</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+
+
+
+
+

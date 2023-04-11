@@ -18,6 +18,23 @@ body {
 }
 
 
+/* HEADER */
+
+header {
+    box-shadow: grey 0 0 5px;
+    background-color: whitesmoke;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+header li {
+    list-style: none;
+}
+header h1, header h2 {
+    text-align: center;
+}
+
+
 
 
 
