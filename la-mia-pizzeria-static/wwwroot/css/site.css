@@ -34,6 +34,21 @@ header h1, header h2 {
     text-align: center;
 }
 
+/* DETAIL */
+
+.container-detail {
+    width: 500px;
+    height: 400px;
+    margin: auto;
+    text-align: center;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 50px;
+}
+.container-detail img {
+    width: 100%;
+}
+
 
 
 
